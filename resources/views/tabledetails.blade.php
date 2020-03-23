@@ -6,7 +6,7 @@
         <div class="col ">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">ข้อมูลรายการที่ส่งซักทั้งหมด                </h3>
+                    <h3 class="mb-0">ข้อมูลรายการที่ส่งซักทั้งหมด({{count($orders)}} รายการ) </h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush ">
@@ -14,8 +14,8 @@
                         <tr>
                             <th scope="col">รหัสรายการ</th>
                             <th scope="col">วันที่สะดวก</th>
-                            <th scope="col">รายชื่อลูกค้า</th>
                             <th scope="col">เวลาที่สะดวก</th>
+                            <th scope="col">รหัสลูกค้า</th>
                             <th scope="col">วันเวลาที่สั่ง</th>
                         </tr>
                         </thead>
