@@ -1,7 +1,7 @@
 @extends('layouts.argon_template')
 
 @section('content')
-    <link href="path/to/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+{{--    <link href="path/to/font-awesome/css/font-awesome.min.css" rel="stylesheet" />--}}
 
     <div class="card-body">
         <div class="card shadow mb-40">
@@ -105,7 +105,7 @@
                 </htmlpagefooter>
                 </body>
                 </html>
-
+                <a class="btn btn-success" href="{{route('shopinfo')}}" role="button">กลับ</a></center>
 
             </div>
         </div>

@@ -128,7 +128,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{url('profile')}}">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>ข้อมูลผู้ใช้งาน</span></a>
         </li>

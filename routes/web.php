@@ -38,7 +38,7 @@ Route::resource('products', 'ProductController');
 
 Route::get('showdetails/{id}', 'ShowController@show');
 Route::resource('tabledetails','TableController');
-
+Route::resource('profile','ShowUserController');
 
 //
 Route::resource('users', 'UsersController');
