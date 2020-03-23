@@ -30,7 +30,7 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card bg-warning text-white mb-4 font-weight-normal">
                                         <div class="card-body">รายการผ้า
-                                            <img src="../public/images/img/F1.png"  wight=42px height=40px"></div>
+                                            <img src="../public/assets/img/F1.png"  wight=42px height=40px"></div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-black stretched-link" href="{{route('products.index')}}">View Details</a>
                                             <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>
@@ -40,7 +40,7 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card bg-success text-white mb-4 font-weight-normal">
                                         <div class="card-body">รายการส่งซัก
-                                            <img src="../public/images/img/B1.png"  wight=42px height=40px"></div>
+                                            <img src="../public/assets/img/B1.png"  wight=42px height=40px"></div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-black stretched-link" href="{{route('Order.index')}}">View Details</a>
                                             <div class="small text-black-50"><i class="fas fa-angle-right" ></i></div>
@@ -50,7 +50,7 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card bg-danger text-white mb-4 font-weight-normal">
                                         <div class="card-body">รายการผ้าทั้งหมด
-                                            <img src="../public/images/img/B2.png"  wight=42px height=40px"> </div>
+                                            <img src="../public/assets/img/B2.png"  wight=42px height=40px"> </div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-black stretched-link" href="{{route('Order_Product.index')}}">View Details</a>
                                             <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>
@@ -66,7 +66,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-info text-white mb-4 font-weight-normal">
                         <div class="card-body">อัพเดทสถานะ
-                            <img src="../public/images/img/Drive.png"  wight=42px height=40px"> </div>
+                            <img src="../public/assets/img/Drive.png"  wight=42px height=40px"> </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-black stretched-link" href="#">View Details</a>
                             <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>

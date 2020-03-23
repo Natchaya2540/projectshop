@@ -20,10 +20,10 @@
                         }
                         body{
                             font-family: "supermarket";
-                            font-size:20px;
+                            font-size:25px;
                         }
                         table, td, th {
-                            border: 1px solid #ddd;
+                            border: 2px solid #ddd;
                             text-align: left;
                         }
                         table {
@@ -39,7 +39,7 @@
 
                      <img src="../images/img/Pavara22.png " width="500px" height="60px" align="right"><br><br><br>
 {{--                     @foreach($users as$items)--}}
-               <h2 style="text-align: center" >ใบแสดงรายการผ้า</h2></u>
+                     <u><b>  <h2 style="text-align: center"  >ใบแสดงรายการผ้า</h2></b></u>
 
 
 {{--                        ที่อยู่ : {{ Auth::user()->send_address }}<br>--}}
@@ -60,7 +60,7 @@
                             <th>จำนวนผ้า</th>
                             <th>ราคา</th>
                             <th>ราคาทั้งหมด</th>
-                            <th>วัน/เวลา/เลขใบส่งซัก</th>
+                            <th>วัน/เวลา</th>
 
                         </tr>
 
@@ -82,11 +82,11 @@
                                   @endforeach
 
 {{--@foreach($order_has_products as $item)--}}
-                              เลขที่ใบเสร็จ :  {{$item->id_orders}}<br>
-                                ชื่อ : {{ $item->uname}}<br>
-                               ที่อยู่ :  {{$item->send_address}} <br>
-                                 โทร : {{$item->tel}}<br>
-                                เลขกำกับภาษี : {{$item->Tex}}<br><br>
+                                <h4  align="right">       เลขที่ใบเสร็จ :  {{$item->id_orders}}<br></h4>
+                                <h5 align="left" >           ชื่อ : {{ $item->uname}}<br></h5>
+                                <h5 align="left" > ที่อยู่ :  {{$item->send_address}} <br></h5>
+                                <h5 align="left">     โทร : {{$item->tel}}<br></h5>
+                                <h5 align="left">         เลขกำกับภาษี : {{$item->Tex}}<br><br></h5>
 {{--    @endforeach--}}
 
                                                    </tr>

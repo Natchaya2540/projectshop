@@ -13,15 +13,15 @@
                         <thead class="thead-light">
                         <tr>
 
-                            <th scope="col">รหัสรายการ</th>
-                            <th scope="col">วันที่</th>
-                            <th scope="col">เวลา</th>
-                            <th scope="col">รหัสลูกค้า</th>
-                            <th scope="col">รายชื่อลูกค้า</th>
-                            <th scope="col">สถานะ</th>
-                            <th scope="col">วันเวลาที่สั่ง</th>
+                            <th scope="col" style="width: 10%">รหัสรายการ</th>
+                            <th scope="col"style="width: 10%">วันที่</th>
+                            <th scope="col"style="width: 10%">เวลา</th>
+                            <th scope="col"style="width: 10%">รหัสลูกค้า</th>
+                            <th scope="col"style="width: 15%">รายชื่อลูกค้า</th>
+                            <th scope="col"style="width: 10%">สถานะ</th>
+                            <th scope="col"style="width: 10%">วันเวลาที่สั่ง</th>
 
-                            <th scope="col" style="... "></th>
+                            <th scope="col" style="width: 30% "></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -37,14 +37,17 @@
                                 <td>{{$item->updated_at}}</td>
 
                                 <td>
-                                    <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn btn-sm btn-outline-info">แสดง</a>
-                                    <a href="#" class="btn btn-sm btn-outline-danger">PDF</a>
-                                    <form class="delete" action="{{route('Order.destroy',$item->id_orders)}}" method="POST">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        {{ csrf_field() }}
+
+{{--                                    <a href="#" class="btn btn-sm btn-outline-danger"> <i class="fa fa-trash"></i>ลบ</a>--}}
+{{--                                  <form class="delete" action="{{route('Order.destroy',$item->id_orders)}}" method="POST">--}}
+{{--                                        <button type="submit" class="btn btn-sm btn-outline-danger"> <i class="fa fa-trash"></i> ลบ</button>--}}
+{{--                                        <input type="hidden" name="_method" value="DELETE">--}}
+{{--                                        {{ csrf_field() }}--}}
+                                         <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn btn-sm btn-outline-primary">แสดง</a>
+                                         <a href="#" class="btn btn-sm btn-outline-danger">PDF</a>
 {{--                                        <a href="#" class="btn btn-sm btn-outline-success"> <i class="fa fa-edit"></i> แก้ไข</a>--}}
-{{--                                        <button type="submit" class="btn btn-sm btn-outline-success"> <i class="fa fa-trash"></i> ลบ</button>--}}
-                                    </form>
+
+                                     </form>
                                 </td>
                             </tr>
                         @endforeach

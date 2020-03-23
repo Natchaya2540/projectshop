@@ -95,7 +95,8 @@
 
                     <tfoot>
                     <tr class="visible-xs">
-                        <td class="text-center"><strong>Total : {{$total}} </strong></td>
+                        <td class="text-center"><strong>Total : {{$total}} </strong>
+{{--                            <input type="" name="products[{{$id}}]['Total_price']" value="{{ $order_has_products['Total_price'] }}"></td>--}}
                     </tr>
                     <tr>
                         <td colspan="2" class="hidden-xs"></td>
@@ -110,7 +111,7 @@
                 <tr>
                     <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> เพิ่มผ้าลงตะกร้า</a><br><br>
 
-                       วันและเวลาที่ต้องการให้ไปรับผ้า <br>
+                       วันและเวลาที่ต้องการให้ไปรับผ้า <br><br>
                        วันที่ : <input type="date" name="order_date" id="order_date" class="font-weight-normal " >
                        เวลา : <input type="time" name="order_time" id="order_time" class="font-weight-normal">
 

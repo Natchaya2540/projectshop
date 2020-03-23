@@ -62,6 +62,7 @@ class CartController extends Controller
             $order_products->quantity = $order_has_products['number'];
             $order_products->total = $order_has_products['cost'] * $order_has_products['number'];
             $order_products->name = $order_has_products['name'];
+//            $order_has_products->Total_price =$order_has_products['Total_price'];
             $order_products->save();
         }
 
