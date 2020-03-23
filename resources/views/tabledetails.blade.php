@@ -25,7 +25,7 @@
                                 <td>{{$item->id_orders}}</td>
                                 <td>{{$item->order_date}}</td>
                                 <td>{{$item->order_time}}</td>
-                                <td>{{$item->user->name}}</td>
+                                <td>{{$item->user_ID}}</td>
                                 <td>{{$item->updated_at}}</td>
                                 <td></td>
                                 <td>

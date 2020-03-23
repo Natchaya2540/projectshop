@@ -6,12 +6,16 @@ use App\Order;
 use App\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class tableController extends Controller
 {
     public function index()
     {
-        $orders = Order::all();
+        $id=Auth::user()->id;
+        $orders= DB::table('orders')
+        ->where('orders.user_ID',$id)
+        ->get();
         return view('tabledetails')
             ->with('orders', $orders);
 
