@@ -51,7 +51,7 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <div class="col-lg-5 d-none d-lg-block  ">
-                    <img src="assets/img/Pavara1.jpg"width="500"px height="700">
+                    <img src="images/img/Pavara1.jpg"width="500"px height="700">
                 </div>
                 <div class="col-lg-7">
                     <div class="p-5">
