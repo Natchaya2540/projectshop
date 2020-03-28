@@ -179,7 +179,7 @@
 
 
                 <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto fixed-left ">
 
 
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -493,6 +493,7 @@
         </div>
     </div>
 </footer>
+
 <!-- End of Footer -->
 
 </div>

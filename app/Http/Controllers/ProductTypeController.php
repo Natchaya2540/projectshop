@@ -16,9 +16,19 @@ class ProductTypeController extends Controller
     {
         $product_types = ProductType::all();
         return view('product_type.index')
-            ->with('product_types',$product_types);
+            ->with('product_types', $product_types);
     }
 
+//    public function xxx($id = null)
+//    {
+//        $product_types = ProductType::all();
+//
+//        $test = array(
+//        "test" => 1,
+//        "test2" => 2,
+//    );
+//    return $product_types;
+//    }
     /**
      * Show the form for creating a new resource.
      *

@@ -40,6 +40,17 @@ Route::get('showdetails/{id}', 'ShowController@show');
 Route::resource('tabledetails','TableController');
 Route::resource('profile','ShowUserController');
 
+//Route::get('/ok', 'ProductTypeController@xxx');
+//
+//
+//Route::get('/ok', function () {
+//    $test = array(
+//        "test" => 1,
+//        "test2" => 2,
+//    );
+//    return $test;
+//});
+
 //
 Route::resource('users', 'UsersController');
 
