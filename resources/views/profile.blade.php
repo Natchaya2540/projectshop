@@ -27,23 +27,23 @@
                         </tr>
                         </thead>
                         <tbody>
-{{--                        @foreach($users as$item)--}}
-{{--                            <tr>--}}
-{{--                                <td>{{$item->id}}</td>--}}
-{{--                                <td>{{$item->name}}</td>--}}
-{{--                                <td>{{$item->email}}</td>--}}
-{{--                                <td>{{$item->company}}</td>--}}
-{{--                                <td>{{$item->tel}}</td>--}}
-{{--                                <td>{{$item->company_address}}</td>--}}
-{{--                                <td>{{$item->send_address}}</td>--}}
-{{--                                <td>{{$item->Tex}}</td>--}}
+                        @foreach($users as $item)
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->company}}</td>
+                                <td>{{$item->tel}}</td>
+                                <td>{{$item->company_address}}</td>
+                                <td>{{$item->send_address}}</td>
+                                <td>{{$item->Tex}}</td>
 
 
-{{--                                <td>--}}
-{{--                                    <form class="delete" action="{{route('users.destroy',$item->id)}}" method="POST">--}}
-{{--                                        <input type="hidden" name="_method" value="DELETE">--}}
-{{--                                        {{ csrf_field() }}--}}
-{{--                                        <button type="submit" class="btn btn-sm btn-outline-danger"> <i class="fa fa-trash"></i> ลบ</button>--}}
+                                <td>
+                                    <form class="delete" action="{{route('users.destroy',$item->id)}}" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"> <i class="fa fa-trash"></i> ลบ</button>
                                     </form>
                                 </td>
                             </tr>

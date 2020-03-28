@@ -72,7 +72,7 @@
 {{--                                    <a class="cart_quantity_down" href=""> - </a>--}}
 {{--                                </div>--}}
                                 <td data-th="Quantity">
-                                    <input type="number" value="{{ $order_has_products['number'] }}" class="form-control number" />
+                                    <input type="number" value="{{ $order_has_products['number'] }}" class="form-control number" onchange="change(this,{{$id}})">
                                     <input type="hidden" name="products[{{$id}}][number]" value="{{ $order_has_products['number'] }}">
                                 </td>
 
@@ -80,7 +80,7 @@
                                 <td data-th="total" class="text-center">${{ $order_has_products['cost'] * $order_has_products['number'] }}
                                     </td>
                                 <td class="actions" data-th="">
-                                    <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}">คำนวณ<i class="fa fa-refresh"></i></button>
+{{--                                    <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}">คำนวณ<i class="fa fa-refresh"></i></button>--}}
                                     <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}">ลบ<i class="fa fa-trash-o"></i></button>
                                 </td>
                     </td>
@@ -143,22 +143,22 @@
     <script type="text/javascript">
         // function addQty(id,number) {
         //     alert (id+number);
-        // }
-        $(".update-cart").click(function (e) {
-            e.preventDefault();
+        {{--// }--}}
+        {{--$(".update-cart").click(function (e) {--}}
+        {{--    e.preventDefault();--}}
 
-            var ele = $(this);
+        {{--    var ele = $(this);--}}
 
-            $.ajax({
-                url: '{{ url('update-cart') }}',
-                method: "patch",
-                data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), number: ele.parents("tr").find(".number").val()},
-                success: function (response) {
-                    window.location.reload();
+        {{--    $.ajax({--}}
+        {{--        url: '{{ url('update-cart') }}',--}}
+        {{--        method: "patch",--}}
+        {{--        data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), number: ele.parents("tr").find(".number").val()},--}}
+        {{--        success: function (response) {--}}
+        {{--            window.location.reload();--}}
 
-                }
-            });
-        });
+        {{--        }--}}
+        {{--    });--}}
+        {{--});--}}
 
         $(".remove-from-cart").click(function (e) {
             e.preventDefault();
@@ -177,6 +177,20 @@
             }
         });
 
+        function change(e,id) {
+            var ele = $(e);
+
+            $.ajax({
+                url: '{{ url('update-cart') }}',
+                method: "patch",
+                data: {_token: '{{ csrf_token() }}', id: id, number: ele.parents("tr").find(".number").val()},
+                success: function (response) {
+                    window.location.reload();
+
+                }
+            });
+
+        }
     </script>
 
 @endsection
