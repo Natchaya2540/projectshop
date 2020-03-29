@@ -50,11 +50,13 @@ Route::resource('profile','ShowUserController');
 //    );
 //    return $test;
 //});
-
+//    Route::get('order_has_products/export_pdf/{id}','ShowController@export_pdf')->name('order_has_products.export_pdf');
+Route::get('pdf_layout/{id}','ShowController@export_pdf');
+//Route::get('/Export/pdf','ShowController@Pdf');
 //
 Route::resource('users', 'UsersController');
 
-    Route::get('Order/export_pdf','OrderProductController@export_pdf')->name('order.export_pdf');
+//    Route::get('Order/export_pdf','OrderProductController@export_pdf')->name('order.export_pdf');
 //Route::get('registers', 'UsersController@store')->name('registers.store');
 Route::get('/error', function (){
     return view('error_page');

@@ -6,7 +6,7 @@
         <div class="col ">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h3 class="mb-0">ข้อมูลสินค้าทั้งหมด({{count($orders)}} รายการ)</h3>
+                    <h3 class="mb-0">รายการผ้า({{count($orders)}} รายการ)</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -37,16 +37,25 @@
                                 <td>{{$item->updated_at}}</td>
 
                                 <td>
+                                    <form class="delete" action="{{route('Order.destroy',$item->id_orders)}}"
+                                          method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        {{ csrf_field() }}
 
 {{--                                    <a href="#" class="btn btn-sm btn-outline-danger"> <i class="fa fa-trash"></i>ลบ</a>--}}
 {{--                                  <form class="delete" action="{{route('Order.destroy',$item->id_orders)}}" method="POST">--}}
 {{--                                        <button type="submit" class="btn btn-sm btn-outline-danger"> <i class="fa fa-trash"></i> ลบ</button>--}}
 {{--                                        <input type="hidden" name="_method" value="DELETE">--}}
 {{--                                        {{ csrf_field() }}--}}
-                                         <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn btn-sm btn-outline-primary">แสดง</a>
-                                         <a href="#" class="btn btn-sm btn-outline-danger">PDF</a>
-{{--                                        <a href="#" class="btn btn-sm btn-outline-success"> <i class="fa fa-edit"></i> แก้ไข</a>--}}
-
+                                         <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> แสดง</a>
+                                         <a href="{{url('pdf.layout',$item->id_orders)}} " class="btn btn-sm btn-info"><i class="fa fa-file"></i> PDF</a>
+                                    <button type="submit" class="btn  btn-sm btn-danger  glyphicon glyphicon-trash"><i
+                                            class="fa fa-trash  "></i> ลบ
+                                    </button><br><br>
+                                        <a href=""
+                                           class="btn btn-sm btn-primary"> <i
+                                                class="fa fa-edit"></i>
+                                            อัพเดทสถานะ</a>
                                      </form>
                                 </td>
                             </tr>

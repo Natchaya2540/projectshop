@@ -18,14 +18,14 @@ class OrderProductController extends Controller{
             ->with('orders',$orders);
     }
 
-    public function export_pdf(){
-        $orders =Order::orderBy('id')->get();
-        $data = [
-            'order'=> $orders
-        ];
-        $pdf = PDF::loadView('view_name', $data);
-        return $pdf->stream('example.pdf');
-    }
+//    public function export_pdf(){
+//        $orders =Order::orderBy('id')->get();
+//        $data = [
+//            'order'=> $orders
+//        ];
+//        $pdf = PDF::loadView('view_name', $data);
+//        return $pdf->stream('example.pdf');
+//    }
 
 
 
@@ -50,9 +50,11 @@ class OrderProductController extends Controller{
 
     public function edit($id){}
 
-    public function update(Request $request, $id){
-
-
+    public function update(Request $request, $id_orders){
+        $orders = Order::find($id_orders);
+        $orders->update($orders->all());
+        $orders->save();
+        return redirect()->route('orders.index')->with('status','แก้ไขข้อมูลสำเร็จ');
     }
 
 

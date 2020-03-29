@@ -29,8 +29,8 @@
                                 <td>{{$item->updated_at}}</td>
                                 <td></td>
                                 <td>
-                                    <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn btn-sm btn-outline-info">แสดง</a>
-                                    <a href="#" class="btn btn-sm btn-outline-danger">PDF</a>
+                                    <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn  btn-success"><i class="fa fa-eye"></i>แสดง</a>
+                                    <a href="#" class ="btn btn-sm btn-danger"><i class="fa fa-file"></i> PDF</a>
 
 
                                     </form>

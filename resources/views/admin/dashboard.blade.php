@@ -20,7 +20,7 @@
                                 <div class="col-xl-3 col-md-6">
                                     <div class="card bg-primary text-white mb-4 font-weight-normal">
                                         <div class="card-body">สมาชิก
-                                            <img src="images/img/user2.png"  wight=42px height=40px"></div>
+                                            <img src="images/img/people.png"  wight=42px height=40px"></div>
                                         <div class="card-footer d-flex align-items-center justify-content-between">
                                             <a class="small text-black stretched-link" href="{{route('users.index')}}">View Details</a>
                                             <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>
