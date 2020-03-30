@@ -48,7 +48,7 @@
 {{--                                        <input type="hidden" name="_method" value="DELETE">--}}
 {{--                                        {{ csrf_field() }}--}}
                                          <a href="{{url('showdetails')}}/{{$item->id_orders}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> แสดง</a>
-                                         <a href="{{url('pdf.layout',$item->id_orders)}} " class="btn btn-sm btn-info"><i class="fa fa-file"></i> PDF</a>
+{{--                                         <a href="{{url('pdf.layout',$item->id_orders)}} " class="btn btn-sm btn-info"><i class="fa fa-file"></i> PDF</a>--}}
                                     <button type="submit" class="btn  btn-sm btn-danger  glyphicon glyphicon-trash"><i
                                             class="fa fa-trash  "></i> ลบ
                                     </button><br><br>

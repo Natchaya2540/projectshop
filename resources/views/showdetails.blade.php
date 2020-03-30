@@ -81,18 +81,17 @@
                                 {{$item->order_time}}</th>
                                   @endforeach
 
-{{--@foreach($order_has_products as $item)--}}
+
                                 <h4  align="right">       เลขที่ใบเสร็จ :  {{$item->id_orders}}<br></h4>
                                 <h4 align="left" > ข้อมูลลูกค้า </h4>
                                 <h5 align="left" >           ชื่อ : {{ $item->uname}}<br></h5>
                                 <h5 align="left" > ที่อยู่ :  {{$item->send_address}} <br></h5>
                                 <h5 align="left">     โทร : {{$item->tel}}<br></h5>
                                 <h5 align="left">         เลขกำกับภาษี : {{$item->Tex}}<br><br></h5>
-{{--    @endforeach--}}
+
 
                                                    </tr>
 
-{{--                        @endforeach--}}
 
                         </tbody>
                     </table>
