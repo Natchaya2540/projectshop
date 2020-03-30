@@ -9,7 +9,7 @@
                     @foreach($users as $item)
                     <h3 class="mb-0">ข้อมูลส่วนตัว {{$item->name}}</h3><br>
                 </div>
-              <img src="images/img/P6.png " width="300px" height="250px" align="center">
+                  <img src="images/img/P6.png" width="300px" height="250px" align="center">
 
                             </th>
                         </tr>

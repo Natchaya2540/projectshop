@@ -51,7 +51,7 @@ Route::resource('profile','ShowUserController');
 //    return $test;
 //});
 //    Route::get('order_has_products/export_pdf/{id}','ShowController@export_pdf')->name('order_has_products.export_pdf');
-Route::get('pdf_layout/{id}','ShowController@export_pdf');
+//Route::get('pdf_layout/{id}','ShowController@export_pdf');
 //Route::get('/Export/pdf','ShowController@Pdf');
 //
 Route::resource('users', 'UsersController');
