@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2020 at 09:48 AM
+-- Generation Time: Apr 14, 2020 at 01:45 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.27
 
@@ -99,7 +99,8 @@ INSERT INTO `orders` (`updated_at`, `created_at`, `id_orders`, `order_date`, `or
 ('2020-03-30 07:12:43', '2020-03-30 07:12:43', 279, '2020-03-12', '23:59', 0, 0, 1, ''),
 ('2020-03-30 07:27:19', '2020-03-30 07:27:19', 280, '2020-03-31', '23:00', 0, 0, 1, ''),
 ('2020-03-30 07:39:31', '2020-03-30 07:39:31', 281, '2020-03-25', '23:55', 0, 0, 1, ''),
-('2020-03-30 07:47:33', '2020-03-30 07:47:33', 282, '2020-03-26', '23:00', 0, 0, 1, '');
+('2020-03-30 07:47:33', '2020-03-30 07:47:33', 282, '2020-03-26', '23:00', 0, 0, 1, ''),
+('2020-04-13 21:34:10', '2020-04-13 21:34:10', 283, '2020-04-16', '08:30', 0, 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -158,7 +159,8 @@ INSERT INTO `order_has_products` (`id_orders`, `products_id`, `price`, `quantity
 (281, 51, '8.00', '2', 16, 213, '2020-03-30 07:39:31', '2020-03-30 07:39:31', 'ผ้าเช็คมือ', NULL),
 (282, 39, '10.00', '1', 10, 214, '2020-03-30 07:47:33', '2020-03-30 07:47:33', 'ปลอกหมอน ขนาด 3.5', NULL),
 (282, 45, '10.00', '1', 10, 215, '2020-03-30 07:47:33', '2020-03-30 07:47:33', 'ผ้าเช็ดหน้า', NULL),
-(282, 50, '20.00', '1', 20, 216, '2020-03-30 07:47:33', '2020-03-30 07:47:33', 'หมอน', NULL);
+(282, 50, '20.00', '1', 20, 216, '2020-03-30 07:47:33', '2020-03-30 07:47:33', 'หมอน', NULL),
+(283, 40, '10.00', '1', 10, 217, '2020-04-13 21:34:10', '2020-04-13 21:34:10', 'ผ้าปูเตียงเล็กขนาด 3.5', NULL);
 
 -- --------------------------------------------------------
 
@@ -239,12 +241,27 @@ INSERT INTO `product_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `send_orders` (
   `id` bigint(11) NOT NULL,
-  `send_day` datetime NOT NULL,
-  `send_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `total` decimal(10,2) NOT NULL,
-  `employee_EmpId` int(11) UNSIGNED NOT NULL,
-  `status_has_send_orders_id` bigint(12) UNSIGNED NOT NULL
+  `send_day` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `send_time` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total` decimal(10,2) DEFAULT NULL,
+  `employee_EmpId` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_has_send_orders_id` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `id_orders` bigint(20) DEFAULT NULL,
+  `details` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `send_orders`
+--
+
+INSERT INTO `send_orders` (`id`, `send_day`, `send_time`, `total`, `employee_EmpId`, `status_has_send_orders_id`, `id_orders`, `details`, `updated_at`, `created_at`) VALUES
+(1, '12/30/02', '12.00', '18.00', 'Prim', 'ส่งแล้ว', 122, 'ดีจ้า', '2020-04-13 20:21:16', '2020-04-13 20:21:16'),
+(2, '12/30/01', '12.01', '18.00', 'Prim', 'ส่งแล้ว', 123, 'ดีจ้า', '2020-04-13 20:25:36', '2020-04-13 20:25:36'),
+(3, '2020-04-09', '13:15', '18.00', 'Prim', 'ส่งแล้ว', 285, 'ดีจ้า', '2020-04-13 20:43:30', '2020-04-13 20:43:30'),
+(4, '2020-04-16', '08:23', '18.00', 'Prim', '2', 111, 'ดีจ้า', '2020-04-13 20:54:47', '2020-04-13 20:54:47'),
+(5, '2020-04-16', '23:59', '15.00', 'Prim', '3', 122, 'ดีจ้า', '2020-04-13 20:56:38', '2020-04-13 20:56:38');
 
 -- --------------------------------------------------------
 
@@ -254,8 +271,18 @@ CREATE TABLE `send_orders` (
 
 CREATE TABLE `status` (
   `id` bigint(11) NOT NULL,
-  `name` int(11) NOT NULL
+  `name` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `name`) VALUES
+(1, 'รับผ้าสำเร็จ'),
+(2, 'รับผ้าไม่สำเร็จ'),
+(3, 'กำลังดำเนินการ'),
+(4, 'ดำเนินการสำเร็จ');
 
 -- --------------------------------------------------------
 
@@ -417,13 +444,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_orders` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=283;
+  MODIFY `id_orders` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
 
 --
 -- AUTO_INCREMENT for table `order_has_products`
 --
 ALTER TABLE `order_has_products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=218;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -438,10 +465,16 @@ ALTER TABLE `product_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `send_orders`
+--
+ALTER TABLE `send_orders`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `status_has_orders`

@@ -63,16 +63,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="row align-items-center mt-3">
+                    <div class="col">
+                        <div class="row">
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-info text-white mb-4 font-weight-normal">
                         <div class="card-body">อัพเดทสถานะ
                             <img src="images/img/Drive.png"  wight=42px height=40px"> </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-black stretched-link" href="#">View Details</a>
+                            <a class="small text-black stretched-link" href="{{route('send_orders.index')}}">View Details</a>
                             <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
+                </div>
 
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-gradient-dark text-white mb-4 font-weight-normal">
+                        <div class="card-body">แสดงสถานะ
+                            <img src="images/img/U.png"  wight=42px height=40px"> </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-black stretched-link" href="{{route('show_detail.index')}}">View Details</a>
+                            <div class="small text-black-50"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                        </div>
 
                 <!-- Nav Item - Utilities Collapse Menu -->
 

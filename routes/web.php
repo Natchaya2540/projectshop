@@ -35,7 +35,8 @@ Route::resource('Order','OrderProductController');
 Route::resource('Order_Product','OrderHasProductsController');
 Route::resource('product_types', 'ProductTypeController');
 Route::resource('products', 'ProductController');
-
+Route::resource('send_orders', 'SendController');
+Route::resource('show_detail','ShowDetailsController');
 Route::get('showdetails/{id}', 'ShowController@show');
 Route::resource('tabledetails','TableController');
 Route::resource('profile','ShowUserController');

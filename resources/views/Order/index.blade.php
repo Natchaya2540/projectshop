@@ -52,8 +52,7 @@
                                     <button type="submit" class="btn  btn-sm btn-danger  glyphicon glyphicon-trash"><i
                                             class="fa fa-trash  "></i> ลบ
                                     </button><br><br>
-                                        <a href=""
-                                           class="btn btn-sm btn-primary"> <i
+                                        <a href="{{route('send_orders.index',$item->id_orders)}}" class="btn btn-sm btn-primary"> <i
                                                 class="fa fa-edit"></i>
                                             อัพเดทสถานะ</a>
                                      </form>

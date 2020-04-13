@@ -48,13 +48,17 @@ class OrderProductController extends Controller{
 
 
 
-    public function edit($id){}
+    public function edit()
+    {
+
+    }
+
 
     public function update(Request $request, $id_orders){
         $orders = Order::find($id_orders);
         $orders->update($orders->all());
         $orders->save();
-        return redirect()->route('orders.index')->with('status','แก้ไขข้อมูลสำเร็จ');
+        return redirect()->route('Order.edit')->with('status','แก้ไขข้อมูลสำเร็จ');
     }
 
 

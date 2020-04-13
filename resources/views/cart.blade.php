@@ -1,5 +1,7 @@
 @extends('layouts.argon_template')
+
 @section('content')
+
     @auth
         @if(session('status'))
             <div class="row">
@@ -72,7 +74,7 @@
 {{--                                    <a class="cart_quantity_down" href=""> - </a>--}}
 {{--                                </div>--}}
                                 <td data-th="Quantity">
-                                    <input type="number" value="{{ $order_has_products['number'] }}" class="form-control number" onchange="change(this,{{$id}})">
+                                    <input type="number" value="{{ $order_has_products['number'] }}" min="0" class="form-control number" onchange="change(this,{{$id}})" >
                                     <input type="hidden" name="products[{{$id}}][number]" value="{{ $order_has_products['number'] }}">
                                 </td>
 
@@ -110,14 +112,13 @@
 
                 <tr>
                     <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> เพิ่มผ้าลงตะกร้า</a><br><br>
-
+                        <div style="margin:auto;width:500px;">
                        วันและเวลาที่ต้องการให้ไปรับผ้า <br><br>
-                       วันที่ : <input type="date" name="order_date" id="order_date" class="font-weight-normal " >
-                       เวลา : <input type="time" name="order_time" id="order_time" class="font-weight-normal">
-
-
-
-
+                            วันที่ : <input type="date" name="order_date" id="order_date" class="font-weight-normal " >
+                       เวลา : <input type="time"  name="order_time" id="order_time" class="font-weight-normal">
+                        </div>
+{{--                        <input type="text" name="dateInput" id="dateInput" value=""/>--}}
+{{--                        <p>Date: <input type="text" id="datepicker"></p>--}}
                     </td>
 
                     <td colspan="2" class="hidden-xs"></td>
@@ -139,8 +140,14 @@
 
 
 @section('script')
-
-    <script type="text/javascript">
+{{--    <meta charset="utf-8">--}}
+{{--    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
+{{--    <title>jQuery UI Datepicker - Default functionality</title>--}}
+{{--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--}}
+{{--    <link rel="stylesheet" href="/resources/demos/style.css">--}}
+{{--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
+{{--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>--}}
+    <script type="text/javascript" >
         // function addQty(id,number) {
         //     alert (id+number);
         {{--// }--}}
@@ -180,17 +187,39 @@
         function change(e,id) {
             var ele = $(e);
 
+
             $.ajax({
+
                 url: '{{ url('update-cart') }}',
                 method: "patch",
-                data: {_token: '{{ csrf_token() }}', id: id, number: ele.parents("tr").find(".number").val()},
+
+                data: {
+                    _token: '{{ csrf_token() }}', id: id, number: ele.parents("tr").find(".number").val()
+                },
+
                 success: function (response) {
                     window.location.reload();
 
                 }
-            });
 
+            });
         }
-    </script>
+        // }
+        // // $( function() {
+        // //     $("#datepicker").datepicker({
+        // //         useCurrent: false,
+        // //     });
+        //
+        // });
+      // $(function(){
+      //      $("#dateInput").datepicker({
+      //
+      //          dateFormat: 'dd-M-yy'
+      //
+      //      });
+      //  });
+
+   </script>
+
 
 @endsection

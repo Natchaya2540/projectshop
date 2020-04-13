@@ -40,7 +40,7 @@ class CartController extends Controller
     {
         $rules = [
             'order_date' => 'required',
-            'order_time' => 'required',
+            'order_time' => ['required'],
 
         ];
         $request->validate($rules);
