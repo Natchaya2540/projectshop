@@ -113,9 +113,10 @@
                 <tr>
                     <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> เพิ่มผ้าลงตะกร้า</a><br><br>
                         <div style="margin:auto;width:500px;">
-                       วันและเวลาที่ต้องการให้ไปรับผ้า <br><br>
+                            <h5> <font color="blue"> วันและเวลาที่ต้องการให้ไปรับผ้า</font></h5> <br>
                             วันที่ : <input type="date" name="order_date" id="order_date" class="font-weight-normal " >
-                       เวลา : <input type="time"  name="order_time" id="order_time" class="font-weight-normal">
+                       เวลา : <input type="time"  name="order_time" id="order_time" class="font-weight-normal"><br><br>
+                            <font color="red" >หมายเหตุ เวลาขั้นต่ำ 8 ชั่วโมง</font>
                         </div>
 {{--                        <input type="text" name="dateInput" id="dateInput" value=""/>--}}
 {{--                        <p>Date: <input type="text" id="datepicker"></p>--}}
