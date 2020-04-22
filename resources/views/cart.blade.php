@@ -1,5 +1,5 @@
 @extends('layouts.argon_template')
-
+{{--<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">--}}
 @section('content')
 
     @auth
@@ -111,16 +111,50 @@
                         <tfoot>
 
                 <tr>
-                    <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> เพิ่มผ้าลงตะกร้า</a><br><br>
+                    <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> เพิ่มผ้าลงตะกร้า</a>
+{{--                        <a href="{{ url('delect') }}" class="btn btn-danger"><i class="fa fa-angle-left"></i>checkout</a><br><br>--}}
+{{--                        <a href="{{ url('delect')}}" class="btn btn-warning btn-block text-center" role="button">หยิบลงตะกร้าผ้า</a>--}}
+
                         <div style="margin:auto;width:500px;">
-                            <h5> <font color="blue"> วันและเวลาที่ต้องการให้ไปรับผ้า</font></h5> <br>
-                            วันที่ : <input type="date" name="order_date" id="order_date" class="font-weight-normal " >
-                       เวลา : <input type="time"  name="order_time" id="order_time" class="font-weight-normal"><br><br>
-                            <font color="red" >หมายเหตุ เวลาขั้นต่ำ 8 ชั่วโมง</font>
+                            <h5> <font color="blue"> วันและเวลาที่ต้องการให้ไปรับผ้า</font></h5> <br><br>
+                            วันที่ : <input type="date" name="order_date" id="order_date" class="font-weight-normal "   min ="2020-04-22" >  <span class="validity"></span>
+                        เวลา : <input type="time"  name="order_time" id="order_time" class="font-weight-normal"><br><br>
+                            <font color="red" >หมายเหตุ เวลาขั้นต่ำ 8 ชั่วโมง</font><br>
+                            <font color="blue" >เลือกสายรถที่คุณต้องการให้ไปรับ :</font>
+                            <select name="employee_EmpId" id="employee_EmpId">
+                                <option value="0" selected>-โปรดเลือกรถ-รับส่งผ้าของคุณ-</option>
+                                <option value="4">สายสีเขียว</option>
+                                <option value="5">สายสีแดง</option>
+                                <option value="6">สีน้ำเงิน</option>
+                            </select>
                         </div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRE03W-9gFaX1y3qDvNxeBPCWa3B98wfxr8PSK2p6H7JXfgfBVY&usqp=CAU"width="42px"height="40px">
+                        <font color="green" >: สายสีเขียว</font> => โนนม่วง-หลังมอ-กังสดาล-มหาวิทยาลัยขอนแก่น <br>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjQbOd-KoOAWP4OG-SjR4l6X6GrXvtvd55FnQbOM_izpNFt9Gr&usqp=CAU"width="42px"height="40px">
+                        <font color="red" >: สายสีแดง</font> => ในเมืองขอนแก่น <br>
+                        <img src="https://agora.xtec.cat/ceip-catalunya-navarcles/wp-content/uploads/usu727/2018/11/f093897d0e67b325765d0b57063c39f4.png"width="42px"height="40px">
+                        <font color="blue" >: สายสีน้ำเงิน</font> => รอบเมืองขอนแก่น
 {{--                        <input type="text" name="dateInput" id="dateInput" value=""/>--}}
 {{--                        <p>Date: <input type="text" id="datepicker"></p>--}}
+
                     </td>
+                    <div class="row">
+                        <div class="col-md-3">
+                    <div class="form-group">
+
+                    </div>
+                        </div>
+                    </div>
+                    <div class='col-md-5'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetime7'>
+{{--                                <input type='text' class="form-control" />--}}
+                                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                            </div>
+                        </div>
+                    </div>
 
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong></strong></td>
@@ -128,8 +162,15 @@
                 </tfoot>
                 </table>
                 <br><br>
+
                 {!! Form::submit('บันทึก', ['class' => 'btn btn-primary']) !!}
-           <a href ="{{route('shopinfo')}}" class="btn btn-info" >กลับ</a>
+                <a href="{{ url('delect') }}" class="btn btn-danger"><i class="fa fa-angle-left"></i>checkout</a>
+
+                          <a href ="{{route('shopinfo')}}" class="btn btn-success" ><i class="fa fa-angle-left"></i>กลับ</a>
+
+
+
+
                 {!! Form::close() !!}
 
 
@@ -137,36 +178,19 @@
         </div>
     </div>
     </div>
+
+
 @endsection
 
 
 @section('script')
-{{--    <meta charset="utf-8">--}}
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
-{{--    <title>jQuery UI Datepicker - Default functionality</title>--}}
-{{--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--}}
-{{--    <link rel="stylesheet" href="/resources/demos/style.css">--}}
-{{--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
-{{--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>--}}
+{{--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>--}}
+{{--    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>--}}
+{{--    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />--}}
+{{--    <script src="/js/moment.min.js"></script>--}}
+{{--    <script src="/js/bootstrap-datetimepicker.min.js"></script>--}}
+
     <script type="text/javascript" >
-        // function addQty(id,number) {
-        //     alert (id+number);
-        {{--// }--}}
-        {{--$(".update-cart").click(function (e) {--}}
-        {{--    e.preventDefault();--}}
-
-        {{--    var ele = $(this);--}}
-
-        {{--    $.ajax({--}}
-        {{--        url: '{{ url('update-cart') }}',--}}
-        {{--        method: "patch",--}}
-        {{--        data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), number: ele.parents("tr").find(".number").val()},--}}
-        {{--        success: function (response) {--}}
-        {{--            window.location.reload();--}}
-
-        {{--        }--}}
-        {{--    });--}}
-        {{--});--}}
 
         $(".remove-from-cart").click(function (e) {
             e.preventDefault();
@@ -205,20 +229,64 @@
 
             });
         }
-        // }
-        // // $( function() {
-        // //     $("#datepicker").datepicker({
-        // //         useCurrent: false,
-        // //     });
-        //
+        // $('#datepicker').datepicker({
+        //     format :"dd/mm/yyyy",
+        //     minDate: '+1",
         // });
-      // $(function(){
-      //      $("#dateInput").datepicker({
-      //
-      //          dateFormat: 'dd-M-yy'
-      //
-      //      });
-      //  });
+        // $(function(){
+        //
+        //         $( "#datepicker" ).datepicker({
+        //         format: "mm/dd/yy",
+        //         weekStart: 0,
+        //         calendarWeeks: true,
+        //         autoclose: true,
+        //         todayHighlight: true,
+        //         rtl: true,
+        //         orientation: "auto"
+        //     });
+        // });
+
+
+        // $('#enddate').datetimepicker().on('dp.change', function (e) {
+        //     var decrementDay = moment(new Date(e.date));
+        //     decrementDay.subtract(1, 'days');
+        //     $('#startdate').data('DateTimePicker').maxDate(decrementDay);
+        //     $(this).data("DateTimePicker").hide();
+        // });
+
+
+        {{--$(".remove").click(function (e) {--}}
+        {{--    e.preventDefault();--}}
+
+        {{--    var ele = $(this);--}}
+
+        {{--    if(confirm("คุณต้องการลบรายการนี้ทิ้งใช่หรือไม่ ?")) {--}}
+        {{--        $.ajax({--}}
+        {{--            url: '{{ url('remove') }}',--}}
+        {{--            method: "DELETE",--}}
+        {{--            success: function (response) {--}}
+        {{--                window.location.reload();--}}
+        {{--            }--}}
+        {{--        });--}}
+        {{--    }--}}
+        {{--});--}}
+        {{--$(".remove").click(function (e) {--}}
+        {{--    e.preventDefault();--}}
+
+        {{--    var ele = $(this);--}}
+
+        {{--    if(confirm("คุณต้องการล้างตะกร้าของคุณหรือไม่ ?")) {--}}
+        {{--        $.ajax({--}}
+        {{--            url: '{{ url('remove') }}',--}}
+        {{--            method: "DELETE",--}}
+        {{--            data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},--}}
+        {{--            success: function (response) {--}}
+        {{--                window.location.reload();--}}
+        {{--            }--}}
+        {{--        });--}}
+        {{--    }--}}
+        {{--});--}}
+
 
    </script>
 

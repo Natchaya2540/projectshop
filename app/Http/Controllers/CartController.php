@@ -40,7 +40,8 @@ class CartController extends Controller
     {
         $rules = [
             'order_date' => 'required',
-            'order_time' => ['required'],
+            'order_time' => 'required',
+            'employee_EmpId' => 'required',
 
         ];
         $request->validate($rules);
@@ -48,6 +49,7 @@ class CartController extends Controller
 
         $order->order_date = $request->order_date;
         $order->order_time = $request->order_time;
+        $order->employee_EmpId = $request->employee_EmpId;
         $order->user_ID = Auth::user()->getAuthIdentifier();
 
         $order->save();
@@ -56,14 +58,16 @@ class CartController extends Controller
         foreach ($request->products as $id => $order_has_products) {
 
             $order_products = new OrderProduct();
-            $order_products->id_orders = $order->id;
+            $order_products->id_orders = $order->id_orders;
             $order_products->products_id = $id;
             $order_products->price = $order_has_products['cost'];
             $order_products->quantity = $order_has_products['number'];
             $order_products->total = $order_has_products['cost'] * $order_has_products['number'];
             $order_products->name = $order_has_products['name'];
 //            $order_has_products->Total_price =$order_has_products['Total_price'];
+
             $order_products->save();
+
         }
 
 //  echo "$order_products";
@@ -122,11 +126,23 @@ class CartController extends Controller
             if (isset(  $products[$request-> id])) {
 
                 unset(  $products[$request->id]);
-                session()->put('cart',   $products);
+                session()->put('cart',  $products);
             }
             session()->flash('success', 'Product removed successfully');
         }
     }
+//    public function delect(Request $request)
+//    {
+//        if ($request) {
+//            $products = session()->get('cart');
+//
+//                unset(  $products[$request]);
+//                session()->put('cart',  $products);
+//            }
+//            session()->flash('success', 'Product removed successfully');
+//
+//        }
+
 
 
     public function cart()
@@ -142,9 +158,9 @@ class CartController extends Controller
         return redirect('/products/cart');
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        ProductType::destroy($id);
-        return back();
+        Cart::destroy();
+        return redirect()->back()->with('success', 'Your rental request has been sent');
     }
 }

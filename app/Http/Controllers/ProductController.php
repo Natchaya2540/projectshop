@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\ProductType;
 use Illuminate\Http\Request;
+use mysql_xdevapi\Session;
 
 class ProductController extends Controller
 {
@@ -201,20 +202,43 @@ class ProductController extends Controller
 
         public function remove(Request $request)
         {
-//            if ($request->id) {
-//
-//                $cart = session()->get('cart');
-//
-//                if (isset($cart[$request->id])) {
-//
-//                    unset($cart[$request->id]);
-//
-//                    session()->put('cart', $cart);
-//                }
-//
-//                session()->flash('success', 'Product removed successfully');
-//            }
+            if ($request->id) {
+
+                $cart = session()->get('cart');
+
+                if (isset($cart[$request->id])) {
+
+                    unset($cart[$request->id]);
+
+                    session()->put('cart', $cart);
+                }
+
+                session()->flash('success', 'Product removed successfully');
+            }
         }
+    public function delect(Request $request)
+    {
+//        $cart = session()->get('cart');
+//        if (isset($cart[$request->all])) {
+//            unset($cart[$request->all()]);
+//            session()->flash('cart', $cart);
+        $request->session()->forget('cart');
+        return redirect()->back()->with('cart_index')->with('status', 'สำเร็จ');
+
+        }
+//        session()->flash('success', 'Product removed successfully');
+//        $request->session('cart')->flash();
+////            $cart = session()->get('cart');
+//            session()->flash('cart');
+
+////        return redirect()->route('cart.index')->with('status','แก้ไขข้อมูลสำเร็จ');
+
+
+//        $this->push('cart', $cart);
+//
+//        $this->removeFromOldFlashData([$cart]);
+
+
 //    public function incrementCart(Request $request, $id){
 //        $product=Product::find($id);
 //        $prevCart=$request->session()->get('cart');

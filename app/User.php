@@ -32,7 +32,7 @@ class User extends Authenticatable
     protected $fillable =
         [
 
-        'name', 'email', 'password','firstname','lastname','company','tel','company_address','send_address','Tex'
+        'name', 'email', 'password','firstname','lastname','company','tel','company_address','send_address','Tex','user_type'
     ];
 
     /**

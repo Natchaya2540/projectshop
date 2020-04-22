@@ -247,23 +247,23 @@
                                             {{--                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>--}}
                                             <a class=" badge-danger" style="width: 2px"></a>
 
-{{--                                            @if(session('cart'))--}}
-{{--                                                @foreach(session('cart') as $id => $details)--}}
-{{--                                                    <div class="row cart-detail">--}}
-{{--                                                        <div class="col-lg-5 col-sm-5 col-5 cart-detail-img" style="width: 350px">--}}
-{{--                                                            <img src="https://image.flaticon.com/icons/svg/1162/1162493.svg "width="30px" /><br>--}}
-{{--                                                            --}}{{--                               <div class="col-lg-4 col-sm-0 col-0 cart-detail-product" >--}}
-{{--                                                            <h6 class="text-danger fa-circle-o-notch" style="width: 600px" >{{ $details['name'] }}  :  {{ $details['cost'] }} $    จำนวน:  {{ $details['number'] }} ชิ้น </h6>--}}
-{{--                                                            --}}{{--                    <span class="price text-info"> ${{ $details['cost'] }}</span><br>--}}
-{{--                                                            --}}{{--                        จำนวน:  {{ $details['number'] }} ชิ้น </h6>--}}
+                                            {{--                                            @if(session('cart'))--}}
+                                            {{--                                                @foreach(session('cart') as $id => $details)--}}
+                                            {{--                                                    <div class="row cart-detail">--}}
+                                            {{--                                                        <div class="col-lg-5 col-sm-5 col-5 cart-detail-img" style="width: 350px">--}}
+                                            {{--                                                            <img src="https://image.flaticon.com/icons/svg/1162/1162493.svg "width="30px" /><br>--}}
+                                            {{--                                                            --}}{{--                               <div class="col-lg-4 col-sm-0 col-0 cart-detail-product" >--}}
+                                            {{--                                                            <h6 class="text-danger fa-circle-o-notch" style="width: 600px" >{{ $details['name'] }}  :  {{ $details['cost'] }} $    จำนวน:  {{ $details['number'] }} ชิ้น </h6>--}}
+                                            {{--                                                            --}}{{--                    <span class="price text-info"> ${{ $details['cost'] }}</span><br>--}}
+                                            {{--                                                            --}}{{--                        จำนวน:  {{ $details['number'] }} ชิ้น </h6>--}}
 
-{{--                                                        </div>--}}
-
-
-{{--                                                    </div>--}}
+                                            {{--                                                        </div>--}}
 
 
-                                                @endforeach
+                                            {{--                                                    </div>--}}
+
+
+                                            @endforeach
                                             @endif
                                             <div class="row">
                                                 <div class="col-lg-12 col-sm-12 col-12 text-center checkout">

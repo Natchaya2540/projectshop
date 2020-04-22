@@ -56,7 +56,8 @@ class OrderProductController extends Controller{
 
     public function update(Request $request, $id_orders){
         $orders = Order::find($id_orders);
-        $orders->update($orders->all());
+        $orders->update($orders>all());
+        dd($orders);
         $orders->save();
         return redirect()->route('Order.edit')->with('status','แก้ไขข้อมูลสำเร็จ');
     }

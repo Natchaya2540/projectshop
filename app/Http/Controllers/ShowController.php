@@ -21,7 +21,7 @@ class ShowController extends Controller
 
     }
 
-    public function show($id)
+    public function show($id_orders)
     {
 
 //        $order_has_product= OrderProduct::where('id')->get();
@@ -34,7 +34,7 @@ class ShowController extends Controller
             ->join('order_has_products','orders.id_orders','=','order_has_products.id_orders')
            ->join('users','users.id','=','orders.user_ID')
 
-            ->where('orders.id_orders',$id)
+            ->where('orders.id_orders',$id_orders)
             ->get();
            return view('showdetails',["order_has_products" =>$order_has_products]);
 

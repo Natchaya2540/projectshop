@@ -18,8 +18,10 @@
                             <th scope="col"style="width: 10%">เวลา</th>
                             <th scope="col"style="width: 10%">รหัสลูกค้า</th>
                             <th scope="col"style="width: 15%">รายชื่อลูกค้า</th>
+                            <th scope="col"style="width: 10%">ที่อยู่</th>
+                            <th scope="col"style="width: 10%">พนักงาน</th>
                             <th scope="col"style="width: 10%">สถานะ</th>
-                            <th scope="col"style="width: 10%">วันเวลาที่สั่ง</th>
+
 
                             <th scope="col" style="width: 30% "></th>
                         </tr>
@@ -33,8 +35,10 @@
                                 <td>{{$item->order_time}}</td>
                                 <td>{{$item->user_ID}}</td>
                                 <td>{{$item->user->name}}</td>
+                                <td>{{$item->user->send_address}}</td>
+                                <td>{{$item->employee_EmpId}}</td>
                                 <td>{{$item->send_has_orders_status_ID}}</td>
-                                <td>{{$item->updated_at}}</td>
+
 
                                 <td>
                                     <form class="delete" action="{{route('Order.destroy',$item->id_orders)}}"

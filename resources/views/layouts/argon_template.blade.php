@@ -16,7 +16,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito: 200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -69,7 +69,7 @@
                     <h1 class="collapse-header font-weight-bolder text-danger">ราบการ</h1>
                     <a class="collapse-item" href="{{route('products.index')}}">ซักผ้า</a>
                     <a class="collapse-item" href="{{ url('cart') }}">ตะกร้าผ้า</a>
-                    <a class="collapse-item" href="">ตรวจสอบสถานะของผ้า</a>
+                    <a class="collapse-item" href="{{url('tabledetails')}}">ตรวจสอบสถานะของผ้า</a>
 
                 </div>
             </div>
@@ -86,12 +86,13 @@
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="{{route('admin.dashboard')}}">Admin</a>
                     <a class="collapse-item" href="{{route('products.index')}}">รายการผ้าทั้งหมด</a>
                     <a class="collapse-item" href="{{route('product_types.index')}}">ประเภทของผ้า</a>
                     <a class="collapse-item" href="{{route('users.index')}}">รายชื่อสมาชิก</a>
                     <a class="collapse-item" href="{{route('Order.index')}}">สรุปผลรายการ</a>
-                    <a class="collapse-item" href="{{route('admin.dashboard')}}">Admin</a>
-                    <a class="collapse-item" href="#">อื่นๆ</a>
+
+{{--                    <a class="collapse-item" href="#">อื่นๆ</a>--}}
                 </div>
 
             </div>
@@ -99,8 +100,18 @@
     @else
 
     @endif
+{{--        @if( Auth::user()->user_type==3)--}}
+{{--        <span>สำหรับพักงานขับรถ</span>--}}
+{{--        </a>--}}
+{{--        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">--}}
+{{--            <div class="bg-white py-2 collapse-inner rounded">--}}
+{{--                <h6 class="collapse-header">ตารางเดินรถ</h6>--}}
+{{--                <a class="collapse-item" href="">Diver</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--            @else--}}
 
-
+{{--            @endif--}}
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -108,25 +119,27 @@
         <div class="sidebar-heading">
             Addons
         </div>
-
+        @if( Auth::user()->user_type==3)
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>หน้า</span>
+                <span>สำหรับแผนกขนส่ง</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-
-                    <a class="collapse-item" href="#">ลงทะเบียน</a>
-                    <a class="collapse-item" href="#">ลืมรหัสผ่าน</a>
+                    <h6 class="collapse-header">ตารางเดินรถ</h6>
+                    <a class="collapse-item" href="#">หน้าแรก</a>
+                    <a class="collapse-item" href="{{route('diver.index')}}">เบิลลูกค้าที่ต้องไปรับ</a>
+                    <a class="collapse-item" href="{{route('send_orders.index')}}">ตรวจเช็ค</a>
                     <div class="collapse-divider"></div>
 
                 </div>
             </div>
         </li>
+    @else
 
+    @endif
         <!-- Nav Item - Charts -->
         <li class="nav-item">
             <a class="nav-link" href="{{url('profile')}}">
@@ -268,6 +281,7 @@
                                             <div class="row">
                                                 <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
                                                     <a href="{{ url('cart') }}" class="btn btn-primary btn-lg btn-sm ">View all</a>
+                                                    <a href="{{ url('delect') }}" class="btn btn-danger btn-lg btn-sm ">check out</a>
                                                 </div>
                                             </div>
                                         </span>

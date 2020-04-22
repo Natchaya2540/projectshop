@@ -27,22 +27,28 @@ Route::get('add-to-cart/{id}', 'ProductController@addToCart');
 //Route::get('/products/cart/incrementCart/{id}','CartController@incrementCart')->name('update_cart_Inc');
 Route::patch('update-cart', 'CartController@update');
 Route::delete('remove-from-cart', 'CartController@remove');
+Route::get('delect', 'ProductController@delect')->name('cart_index');
 //
 //Route::patch('update-cart/{id}', 'CartController@update');
-
+Route::patch('orders/{id_orders}','WorkController@edit');
+Route::get('edit/{id_orders}','WorkController@edit');
 Route::delete('remove-from-cart', 'CartController@remove');
 Route::resource('Order','OrderProductController');
 Route::resource('Order_Product','OrderHasProductsController');
 Route::resource('product_types', 'ProductTypeController');
 Route::resource('products', 'ProductController');
+Route::resource('works', 'WorkController');
 Route::resource('send_orders', 'SendController');
 Route::resource('show_detail','ShowDetailsController');
-Route::get('showdetails/{id}', 'ShowController@show');
+Route::get('showdetails/{id_orders}', 'ShowController@show');
 Route::resource('tabledetails','TableController');
 Route::resource('profile','ShowUserController');
-
+Route::resource('work','WorkController');
 //Route::get('/ok', 'ProductTypeController@xxx');
-//
+Route::post('edit/{id_orders}','WorkController@edit');
+Route::resource('diver','DiverController');
+Route::post('edit/{id_orders}','DiverController@edit');
+Route::resource('employee', 'EmpController');
 //
 //Route::get('/ok', function () {
 //    $test = array(

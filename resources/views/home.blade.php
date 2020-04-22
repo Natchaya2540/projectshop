@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.argon_template')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,7 @@
                         </div>
 
                     @endif
+
 
                     You are logged in!
 
